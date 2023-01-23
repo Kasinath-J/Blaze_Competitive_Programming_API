@@ -6,9 +6,9 @@ import time
 from linkedin_api import Linkedin
 import datetime
 import random
-from .ua_list import user_agent
+from .ualist import user_agent
 
-from cpapi.settings import LINKEDIN_EMAIL,LINKEDIN_PASSWORD,GITHUB_API
+from vercel_app.settings import LINKEDIN_EMAIL,LINKEDIN_PASSWORD,GITHUB_API
 import http.client
 
 # Important for reference

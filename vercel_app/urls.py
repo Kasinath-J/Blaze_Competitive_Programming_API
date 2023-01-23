@@ -19,7 +19,7 @@ from .views import LeetcodeView,GithubView,LinkedinView,HackerrankView,CodechefV
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('example.urls')),
+    path('leetcode/<str:pk>/', LeetcodeView),
     path('github/<str:pk>/', GithubView),
     path('linkedin/<str:pk>/', LinkedinView),
     path('hackerrank/<str:pk>/', HackerrankView),
