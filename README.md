@@ -50,7 +50,4 @@ When an user enters the username of the specified platform, then all the details
 #### Steps to find username in Codeforces
 <img src="https://github.com/Kasinath-J/Competitive_Programming_API/blob/main/instructions/Codeforces.png?raw=true" width="600"/>
 
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
+If you would like to leave a feedback or request a feature, please open an issue or feel free to PR. Do follow these instructions to make a valid PR.
