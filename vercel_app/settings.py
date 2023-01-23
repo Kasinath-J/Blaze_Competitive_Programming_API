@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'example'
+    
+    'rest_framework',  
 ]
 
 MIDDLEWARE = [
@@ -119,3 +120,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+######### Linkedin Password #############
+LINKEDIN_EMAIL = 'jrkasinath@gmail.com'
+LINKEDIN_PASSWORD = '11KK*25SI*32!'
+
+######### Github API ###############
+GITHUB_API = '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'

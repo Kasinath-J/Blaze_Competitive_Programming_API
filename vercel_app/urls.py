@@ -15,8 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from .views import LeetcodeView,GithubView,LinkedinView,HackerrankView,CodechefView,CodeforcesView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('example.urls')),
+    path('github/<str:pk>/', GithubView),
+    path('linkedin/<str:pk>/', LinkedinView),
+    path('hackerrank/<str:pk>/', HackerrankView),
+    path('codechef/<str:pk>/', CodechefView),
+    path('codeforces/<str:pk>/', CodeforcesView),
 ]
