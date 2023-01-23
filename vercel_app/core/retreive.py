@@ -9,7 +9,6 @@ import random
 from .ualist import user_agent
 
 from vercel_app.settings import LINKEDIN_EMAIL,LINKEDIN_PASSWORD,GITHUB_API
-import http.client
 
 # Important for reference
 # https://www.pythongasm.com/web-scraping-without-getting-blocked/
