@@ -132,4 +132,4 @@ LINKEDIN_EMAIL = 'jrkasinath@gmail.com'
 LINKEDIN_PASSWORD = '11KK*25SI*32!'
 
 ######### Github API ###############
-GITHUB_API = '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'
+GITHUB_API = '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'
