@@ -1,4 +1,4 @@
-"""vercel_app URL Configuration
+"""cpapi URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -14,15 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from .views import LeetcodeView,GithubView,LinkedinView,HackerrankView,CodechefView,CodeforcesView
+from django.urls import path
+from mainapp.views import InitateUpdate
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('leetcode/<str:pk>/', LeetcodeView),
-    path('github/<str:pk>/', GithubView),
-    path('linkedin/<str:pk>/', LinkedinView),
-    path('hackerrank/<str:pk>/', HackerrankView),
-    path('codechef/<str:pk>/', CodechefView),
-    path('codeforces/<str:pk>/', CodeforcesView),
+    path('initiateupdate/', InitateUpdate),
 ]

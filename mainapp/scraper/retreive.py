@@ -8,7 +8,7 @@ import datetime
 import random
 from .ualist import user_agent
 
-from vercel_app.settings import LINKEDIN_EMAIL,LINKEDIN_PASSWORD,GITHUB_API
+from cpapi.settings import LINKEDIN_EMAIL,LINKEDIN_PASSWORD,GITHUB_API
 
 # Important for reference
 # https://www.pythongasm.com/web-scraping-without-getting-blocked/
@@ -993,11 +993,15 @@ def Contest_retreive_fn(past_weekly_contest_no,past_biweekly_contest_no):
 
 # print(Contest_retreive_fn(323,93))
 
-def Problems_retreive_fn():
+def Problems_retreive_fn(total_easy,total_medium,total_hard):
 
-	total_easy = 614      #updated on 15 December 2022
-	total_medium = 1335   #updated on 15 December 2022
-	total_hard = 556   #updated on 15 December 2022
+	if not total_easy:
+		total_easy = 614      #updated on 15 December 2022
+	if not total_medium:
+		total_medium = 1335   #updated on 15 December 2022
+	if not total_hard:
+		total_hard = 556   #updated on 15 December 2022
+
 	problemsEasy={}
 	problemsMedium={}
 	
