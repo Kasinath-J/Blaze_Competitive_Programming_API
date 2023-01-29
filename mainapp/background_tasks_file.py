@@ -27,15 +27,15 @@ def retrieve_and_put_reqest_for_profiles(profile):
     except:
         pass
 
-    # try:
-    #     if profile["github"]==None or profile["github"]=="":
-    #         ret["github"] = None 
-    #     else:
+    try:
+        if profile["github"]==None or profile["github"]=="":
+            ret["github"] = None 
+        else:
 
-    #         if ("github_date" not in profile) or (profile["github_date"]!=cur_Date):
-    #             ret["github"] = Github_retreive_fn(profile["github"])    
-    # except:
-    #     pass
+            if ("github_date" not in profile) or (profile["github_date"]!=cur_Date):
+                ret["github"] = Github_retreive_fn(profile["github"])    
+    except:
+        pass
 
     try:
         if profile["linkedin"]==None or profile["linkedin"]=="":
