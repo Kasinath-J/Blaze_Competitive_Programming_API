@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-t_7qefiwzdyckeaz&t+7@n2*+3*8-ci30rqr93v&c)+!3e@9m4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cp-api-otyj.onrender.com']
 
 
 # Application definition

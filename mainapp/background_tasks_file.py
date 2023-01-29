@@ -3,7 +3,7 @@ from background_task import background
 import datetime
 from .scraper.retreive import Leetcode_retreive_fn,Github_retreive_fn,LinkedIn_retreive_fn,Hackerrank_retreive_fn,Codechef_retreive_fn,Codeforces_retreive_fn,Problems_retreive_fn,Contest_retreive_fn
 
-base_url = "http://127.0.0.1:8000/api/"
+base_url = "https://csbsblaze.pythonanywhere.com/api/"
 cur_Date = datetime.datetime.now(datetime.timezone.utc).date().strftime("%Y-%m-%d")
 
 def retrieve_and_put_reqest_for_profiles(profile):
