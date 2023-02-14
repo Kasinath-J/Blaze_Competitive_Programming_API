@@ -11,21 +11,30 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+###########################  Newly Added For env file############################
+from dotenv import load_dotenv
+load_dotenv()
+# dotenv_path = os.path.join(BASE_DIR, '.env')
+# load_dotenv(dotenv_path)
+###################################################################
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t_7qefiwzdyckeaz&t+7@n2*+3*8-ci30rqr93v&c)+!3e@9m4'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+debug = True if str(os.getenv('DEBUG'))=="True" else False
+DEBUG = debug
 
-ALLOWED_HOSTS = ['cp-api-otyj.onrender.com']
+ALLOWED_HOSTS = [str(os.getenv('HOST'))]
 
 
 # Application definition
@@ -127,9 +136,18 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+#########################  BackgrounTask Updated #############################
+MAX_RUN_TIME = 60*60*3
+MAX_ATTEMPTS = 2
+
 ######### Linkedin Password #############
-LINKEDIN_EMAIL = 'jrkasinath@gmail.com'
-LINKEDIN_PASSWORD = '11KK*25SI*32!'
+LINKEDIN_EMAIL = os.getenv('LINKEDIN_EMAIL')
+LINKEDIN_PASSWORD = os.getenv('LINKEDIN_PASSWORD')
 
 ######### Github API ###############
-GITHUB_API = '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'
+GITHUB_API = os.getenv('GITHUB_API')
+
+############## URL of blaze backend ###################
+BLAZE_BACKEND_URL = os.getenv('BLAZE_BACKEND_URL')
+

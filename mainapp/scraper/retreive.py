@@ -10,6 +10,7 @@ from .ualist import user_agent
 
 from cpapi.settings import LINKEDIN_EMAIL,LINKEDIN_PASSWORD,GITHUB_API
 
+
 # Important for reference
 # https://www.pythongasm.com/web-scraping-without-getting-blocked/
 
@@ -283,7 +284,6 @@ def LinkedIn_retreive_fn(username):
 	# ----------------------------------1st request----Profile info-------------------------------------------------------
 	
 	profile = api.get_profile(username)
-
 	if profile != {}:		
 		is_successful = True
 		try:
@@ -483,8 +483,7 @@ def LinkedIn_retreive_fn(username):
 
 	# ----------------------------------3rd request----no. of connections ----------------------------------------------------------
 
-	network = api.get_profile_network_info(username)
-
+	network = api.get_profile_connections(username)
 	if network!={}:
 		is_successful = True
 		try:
@@ -502,10 +501,10 @@ def LinkedIn_retreive_fn(username):
 
 	return ret
 
-# temp = LinkedIn_retreive_fn('selvaramg','sincostan182@gmail.com','1q2w3e/*-')
-# temp = LinkedIn_retreive_fn('kasinath-j-2881a6200','jrkasinath@gmail.com','11KK*25SI*32!')
-# temp = LinkedIn_retreive_fn('kasinath-j-2881a6200','sincostan182@gmail.com','1q2w3e/*-')
-# temp = LinkedIn_retreive_fn('cosc-not-1bb93a253','sincostan182@gmail.com','1q2w3e/*-')
+# temp = LinkedIn_retreive_fn('selvaramg')
+# temp = LinkedIn_retreive_fn('kasinath-j-2881a6200')
+# temp = LinkedIn_retreive_fn('kasinath-j-2881a6200')
+# temp = LinkedIn_retreive_fn('cosc-not-1bb93a253')
 # print(temp)
 
 def Hackerrank_retreive_fn(username):

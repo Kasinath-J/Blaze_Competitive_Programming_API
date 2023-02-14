@@ -9,7 +9,7 @@ def InitateUpdate(request):
     if len(Task.objects.all())>0:
         return Response({"message":"Only one tasks will be updated at a time"})
 
-    main_background_fn(schedule=1)
+    main_background_fn(schedule=2)
     return Response({"message":"UPdate started successfully"})
 
 

@@ -2,8 +2,10 @@ import requests
 from background_task import background
 import datetime
 from .scraper.retreive import Leetcode_retreive_fn,Github_retreive_fn,LinkedIn_retreive_fn,Hackerrank_retreive_fn,Codechef_retreive_fn,Codeforces_retreive_fn,Problems_retreive_fn,Contest_retreive_fn
+from cpapi.settings import BLAZE_BACKEND_URL
 
-base_url = "https://csbsblaze.pythonanywhere.com/api/"
+
+base_url = BLAZE_BACKEND_URL+"update/"
 cur_Date = datetime.datetime.now(datetime.timezone.utc).date().strftime("%Y-%m-%d")
 
 def retrieve_and_put_reqest_for_profiles(profile):
@@ -77,10 +79,9 @@ def retrieve_and_put_reqest_for_profiles(profile):
     except:
         pass
 
-    requests.put(base_url+"update/{}/".format(profile["id"]) ,json=ret)
+    requests.put(base_url+"user/{}/".format(profile["id"]) ,json=ret)
 
 def retrieve_and_put_reqest_for_contests_and_problems(data):
-
     ret={
         "total_easy":614,
         "total_medium":1335,
@@ -100,7 +101,7 @@ def retrieve_and_put_reqest_for_contests_and_problems(data):
         (ret['total_easy'],ret['total_medium'],ret['total_hard'],ret['problemsEasy'],ret['problemsMedium'])=Problems_retreive_fn(data['total_easy'],data['total_medium'],data['total_hard'])    
         (ret['contest'],ret['weekly_contest_no'],ret['biweekly_contest_no']) = Contest_retreive_fn(data['weekly_contest_no'],data['biweekly_contest_no'])
 
-        requests.put(base_url+'updateproblemscontest/',json=ret)
+        requests.put(base_url+'problemscontest/',json=ret)
 
     except:
         return 
@@ -110,12 +111,12 @@ def retrieve_and_put_reqest_for_contests_and_problems(data):
 def main_background_fn():
     
     print("-----Updating Problems and Contest Info-----")
-    problem_contest_res = requests.get(base_url+"updateproblemscontest/")
+    problem_contest_res = requests.get(base_url+"problemscontest/")
     problem_contest_data = problem_contest_res.json()
     retrieve_and_put_reqest_for_contests_and_problems(problem_contest_data)
     
     print("------Updating Platform Info of All users------")
-    profile_res = requests.get(base_url+"update/retriving_Data/")
+    profile_res = requests.get(base_url+"user/retriving_Data/")
     profiles = profile_res.json()
 
     for i in range(len(profiles)):
