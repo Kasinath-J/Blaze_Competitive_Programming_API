@@ -7,10 +7,10 @@ from cpapi.settings import BLAZE_BACKEND_URL
 from .selenium.sample import linkedin_scratch
 
 # For development server
-# base_url = BLAZE_BACKEND_URL+"update/"
+base_url = BLAZE_BACKEND_URL+"update/"
 
 # For production server
-base_url = BLAZE_BACKEND_URL+":8000/update/"
+# base_url = BLAZE_BACKEND_URL+":8000/update/"
 
 cur_Date = datetime.datetime.now(datetime.timezone.utc).date().strftime("%Y-%m-%d")
 
