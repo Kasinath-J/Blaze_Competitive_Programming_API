@@ -17,28 +17,28 @@ serv_obj = Service("backend\selenium_test\chromedriver.exe")
 
 def linkedin_scratch(profile):
     
-    # driver = webdriver.Chrome(service=serv_obj)
-    # driver.get("https://www.linkedin.com/company/linkedin/")
-    # # sleep(5)
-    # cookies_dict = {}
-    # for cookie in driver.get_cookies():
-    #     cookies_dict[cookie['name']] = cookie['value']
+    driver = webdriver.Chrome(service=serv_obj)
+    driver.get("https://www.linkedin.com/company/linkedin/")
+    # sleep(5)
+    cookies_dict = {}
+    for cookie in driver.get_cookies():
+        cookies_dict[cookie['name']] = cookie['value']
 
-    # driver.close()
-    # resp = requests.get("https://www.linkedin.com/in/{}/?trk=public-profile-join-page".format(profile),
-    # cookies=cookies_dict,
-    # headers={
-    #     'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36',
-    #     'accept':'application/vnd.linkedin.normalized+json+2.1',
-    #     'accept-encoding': 'gzip, deflate, br',
-    #     'accept-language': 'en-US,en;q=0.6',
-    #     'upgrade-insecure-requests':'1',
-    #     'scheme': 'https',
-    # })
+    driver.close()
+    resp = requests.get("https://www.linkedin.com/in/{}/?trk=public-profile-join-page".format(profile),
+    cookies=cookies_dict,
+    headers={
+        'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Mobile Safari/537.36',
+        'accept':'application/vnd.linkedin.normalized+json+2.1',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en-US,en;q=0.6',
+        'upgrade-insecure-requests':'1',
+        'scheme': 'https',
+    })
 
-    # html_doc = resp.text
-    # soup = BeautifulSoup(html_doc, 'html.parser')
-    # connectionCount = int(soup.find_all('span',class_="top-card__subline-item")[-1].text.split(" ")[0])
+    html_doc = resp.text
+    soup = BeautifulSoup(html_doc, 'html.parser')
+    connectionCount = int(soup.find_all('span',class_="top-card__subline-item")[-1].text.split(" ")[0])
     # print(connectionCount)
 
     ret = {}
@@ -53,7 +53,7 @@ def linkedin_scratch(profile):
     ret['honors'] = []
     ret['publications'] = []
     ret['skills'] = []
-    ret['connectionsCount'] = 10
+    ret['connectionsCount'] = connectionCount
 
     return ret
 
