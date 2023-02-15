@@ -4,6 +4,7 @@ import datetime
 from .scraper.retreive import Leetcode_retreive_fn,Github_retreive_fn,LinkedIn_retreive_fn,Hackerrank_retreive_fn,Codechef_retreive_fn,Codeforces_retreive_fn,Problems_retreive_fn,Contest_retreive_fn
 from cpapi.settings import BLAZE_BACKEND_URL
 
+from .selenium.sample import linkedin_scratch
 
 base_url = BLAZE_BACKEND_URL+"update/"
 cur_Date = datetime.datetime.now(datetime.timezone.utc).date().strftime("%Y-%m-%d")
@@ -19,25 +20,25 @@ def retrieve_and_put_reqest_for_profiles(profile):
         "codechef":None,
         "codeforces":None,
     }
-    try:
-        if profile["leetcode"]==None or profile["leetcode"]=="":
-            ret["leetcode"] = None 
-        else:
+    # try:
+    #     if profile["leetcode"]==None or profile["leetcode"]=="":
+    #         ret["leetcode"] = None 
+    #     else:
 
-            if ("leetcode_date" not in profile) or (profile["leetcode_date"]!=cur_Date):
-                ret["leetcode"] = Leetcode_retreive_fn(profile["leetcode"])
-    except:
-        pass
+    #         if ("leetcode_date" not in profile) or (profile["leetcode_date"]!=cur_Date):
+    #             ret["leetcode"] = Leetcode_retreive_fn(profile["leetcode"])
+    # except:
+    #     pass
 
-    try:
-        if profile["github"]==None or profile["github"]=="":
-            ret["github"] = None 
-        else:
+    # try:
+    #     if profile["github"]==None or profile["github"]=="":
+    #         ret["github"] = None 
+    #     else:
 
-            if ("github_date" not in profile) or (profile["github_date"]!=cur_Date):
-                ret["github"] = Github_retreive_fn(profile["github"])    
-    except:
-        pass
+    #         if ("github_date" not in profile) or (profile["github_date"]!=cur_Date):
+    #             ret["github"] = Github_retreive_fn(profile["github"])    
+    # except:
+    #     pass
 
     try:
         if profile["linkedin"]==None or profile["linkedin"]=="":
@@ -45,39 +46,39 @@ def retrieve_and_put_reqest_for_profiles(profile):
         else:
 
             if ("linkedin_date" not in profile) or (profile["linkedin_date"]!=cur_Date):
-                ret["linkedin"] = LinkedIn_retreive_fn(profile["linkedin"])    
+                ret["linkedin"] = linkedin_scratch(profile["linkedin"])    
     except:
         pass
 
-    try:
-        if profile["hackerrank"]==None or profile["hackerrank"]=="":
-            ret["hackerrank"] = None 
-        else:
+    # try:
+    #     if profile["hackerrank"]==None or profile["hackerrank"]=="":
+    #         ret["hackerrank"] = None 
+    #     else:
 
-            if ("hackerrank_date" not in profile) or (profile["hackerrank_date"]!=cur_Date):
-                ret["hackerrank"] = Hackerrank_retreive_fn(profile["hackerrank"])    
-    except:
-        pass
+    #         if ("hackerrank_date" not in profile) or (profile["hackerrank_date"]!=cur_Date):
+    #             ret["hackerrank"] = Hackerrank_retreive_fn(profile["hackerrank"])    
+    # except:
+    #     pass
 
-    try:
-        if profile["codechef"]==None or profile["codechef"]=="":
-            ret["codechef"] = None 
-        else:
+    # try:
+    #     if profile["codechef"]==None or profile["codechef"]=="":
+    #         ret["codechef"] = None 
+    #     else:
 
-            if ("codechef_date" not in profile) or (profile["codechef_date"]!=cur_Date):
-                ret["codechef"] = Codechef_retreive_fn(profile["codechef"])    
-    except:
-        pass
+    #         if ("codechef_date" not in profile) or (profile["codechef_date"]!=cur_Date):
+    #             ret["codechef"] = Codechef_retreive_fn(profile["codechef"])    
+    # except:
+    #     pass
 
-    try:
-        if profile["codeforces"]==None or profile["codeforces"]=="":
-            ret["codeforces"] = None 
-        else:
+    # try:
+    #     if profile["codeforces"]==None or profile["codeforces"]=="":
+    #         ret["codeforces"] = None 
+    #     else:
 
-            if ("codeforces_date" not in profile) or (profile["codeforces_date"]!=cur_Date):
-                ret["codeforces"] = Codeforces_retreive_fn(profile["codeforces"])    
-    except:
-        pass
+    #         if ("codeforces_date" not in profile) or (profile["codeforces_date"]!=cur_Date):
+    #             ret["codeforces"] = Codeforces_retreive_fn(profile["codeforces"])    
+    # except:
+    #     pass
 
     requests.put(base_url+"user/{}/".format(profile["id"]) ,json=ret)
 
