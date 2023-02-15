@@ -11,13 +11,18 @@ from bs4 import BeautifulSoup
 # from webdriver_manager.chrome import ChromeDriverManager
 
 chrome_options = Options()
-chrome_options.add_experimental_option("detach",True)
+# chrome_options.add_experimental_option("detach",True)
+chrome_options.add_argument("--disable-extensions")
+chrome_options.add_argument("--disable-gpu")
+chrome_options.add_argument("--headless")
 
-serv_obj = Service("backend\selenium_test\chromedriver.exe")
+
+# serv_obj = Service("chromedriver.exe")
 
 def linkedin_scratch(profile):
     
-    driver = webdriver.Chrome(service=serv_obj)
+    # driver = webdriver.Chrome(service=serv_obj)
+    driver = webdriver.Chrome(options=chrome_options)
     driver.get("https://www.linkedin.com/company/linkedin/")
     # sleep(5)
     cookies_dict = {}
