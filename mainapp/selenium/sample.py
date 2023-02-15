@@ -17,12 +17,12 @@ chrome_options.add_argument("--disable-gpu")
 chrome_options.add_argument("--headless")
 
 
-# serv_obj = Service("chromedriver.exe")
+serv_obj = Service("chromedriver.exe")
 
 def linkedin_scratch(profile):
     
     # driver = webdriver.Chrome(service=serv_obj)
-    driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome(service=serv_obj,options=chrome_options)
     driver.get("https://www.linkedin.com/company/linkedin/")
     sleep(5)
     cookies_dict = {}
@@ -62,4 +62,4 @@ def linkedin_scratch(profile):
 
     return ret
 
-print(linkedin_scratch("raj-kumar-837b151ba"))
+# print(linkedin_scratch("raj-kumar-837b151ba"))
