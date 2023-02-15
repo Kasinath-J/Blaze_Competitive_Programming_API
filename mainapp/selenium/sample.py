@@ -50,6 +50,7 @@ def linkedin_scratch(profile):
         # print(connectionCount)
 
     except:
+        connectionCount=-1
         pass
 
     ret = {}
