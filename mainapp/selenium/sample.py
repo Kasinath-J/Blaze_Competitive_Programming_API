@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from time import sleep
 import requests
 from bs4 import BeautifulSoup
-import chromedriver_binary
+# import chromedriver_binary
 
 # from webdriver_manager.chrome import ChromeDriverManager
 
