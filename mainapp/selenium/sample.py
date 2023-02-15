@@ -17,7 +17,7 @@ chrome_options.add_argument("--disable-gpu")
 chrome_options.add_argument("--headless")
 
 
-serv_obj = Service("chromedriver.exe")
+serv_obj = Service("./chromedriver.exe")
 
 def linkedin_scratch(profile):
     
