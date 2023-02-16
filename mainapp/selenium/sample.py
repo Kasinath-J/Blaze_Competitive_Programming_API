@@ -6,6 +6,9 @@ from selenium.webdriver.common.by import By
 from time import sleep
 import requests
 from bs4 import BeautifulSoup
+from pathlib import Path
+import os
+
 # import chromedriver_binary
 
 # from webdriver_manager.chrome import ChromeDriverManager
@@ -17,7 +20,8 @@ chrome_options.add_argument("--disable-gpu")
 chrome_options.add_argument("--headless")
 
 
-serv_obj = Service("chromedriver.exe")
+
+serv_obj = Service(os.path.join(Path(__file__).resolve().parent,"chromedriver.exe"))
 
 def linkedin_scratch(profile):
 
