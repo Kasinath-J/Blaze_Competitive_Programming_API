@@ -9,8 +9,8 @@ from bs4 import BeautifulSoup
 import os
 from pathlib import Path
 
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
+# from selenium.webdriver.chrome.service import Service as ChromeService
+# from webdriver_manager.chrome import ChromeDriverManager
 
 # import chromedriver_binary
 
@@ -25,7 +25,7 @@ chrome_options.add_argument("--headless")
 BASE_DIR = Path(__file__).resolve().parent
 PATH = os.path.join(BASE_DIR,"chromedriver.exe")
 
-# serv_obj = Service(os.path.join(Path(__file__).resolve().parent,"chromedriver.exe"))
+serv_obj = Service(os.path.join(Path(__file__).resolve().parent,"chromedriver.exe"))
 
 
 
@@ -34,9 +34,9 @@ def linkedin_scratch(profile):
     connectionCount=0
     # print(PATH)
     # driver = webdriver.Chrome(service=serv_obj)
-    # driver = webdriver.Chrome(service=serv_obj,options=chrome_options)
+    driver = webdriver.Chrome(service=serv_obj,options=chrome_options)
 
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=chrome_options)
+    # driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()),options=chrome_options)
 
     driver.get("https://www.linkedin.com/company/linkedin/")
     sleep(5)
