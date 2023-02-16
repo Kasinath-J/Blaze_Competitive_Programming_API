@@ -1,10 +1,8 @@
 import requests
 from background_task import background
 import datetime
-from .scraper.retreive import Leetcode_retreive_fn,Github_retreive_fn,LinkedIn_retreive_fn,Hackerrank_retreive_fn,Codechef_retreive_fn,Codeforces_retreive_fn,Problems_retreive_fn,Contest_retreive_fn
+from .scraper.retreive import Leetcode_retreive_fn,Github_retreive_fn,Hackerrank_retreive_fn,Codechef_retreive_fn,Codeforces_retreive_fn,Problems_retreive_fn,Contest_retreive_fn
 from cpapi.settings import BLAZE_BACKEND_URL
-
-from .selenium.sample import linkedin_scratch
 
 # For development server
 base_url = BLAZE_BACKEND_URL+"update/"
@@ -46,12 +44,12 @@ def retrieve_and_put_reqest_for_profiles(profile):
         pass
 
     # try:
-    if profile["linkedin"]==None or profile["linkedin"]=="":
-        ret["linkedin"] = None 
-    else:
+        # if profile["linkedin"]==None or profile["linkedin"]=="":
+        #     ret["linkedin"] = None 
+        # else:
 
-        if ("linkedin_date" not in profile) or (profile["linkedin_date"]!=cur_Date):
-            ret["linkedin"] = linkedin_scratch(profile["linkedin"])    
+        #     if ("linkedin_date" not in profile) or (profile["linkedin_date"]!=cur_Date):
+        #         ret["linkedin"] = linkedin_scratch(profile["linkedin"])    
     # except:
     #     pass
 

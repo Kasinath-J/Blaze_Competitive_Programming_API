@@ -142,9 +142,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MAX_RUN_TIME = 60*60*3
 MAX_ATTEMPTS = 2
 
-######### Linkedin Password #############
-LINKEDIN_EMAIL = os.getenv('LINKEDIN_EMAIL')
-LINKEDIN_PASSWORD = os.getenv('LINKEDIN_PASSWORD')
 
 ######### Github API ###############
 GITHUB_API = os.getenv('GITHUB_API')
