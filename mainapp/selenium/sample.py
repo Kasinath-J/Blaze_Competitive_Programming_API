@@ -28,7 +28,7 @@ def linkedin_scratch(profile):
     connectionCount=0
     
     # driver = webdriver.Chrome(service=serv_obj)
-    driver = webdriver.Chrome(service=serv_obj,options=chrome_options)
+    driver = webdriver.Chrome(options=chrome_options)
     driver.get("https://www.linkedin.com/company/linkedin/")
     sleep(5)
     cookies_dict = {}
