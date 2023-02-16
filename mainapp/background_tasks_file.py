@@ -45,15 +45,15 @@ def retrieve_and_put_reqest_for_profiles(profile):
     except:
         pass
 
-    try:
-        if profile["linkedin"]==None or profile["linkedin"]=="":
-            ret["linkedin"] = None 
-        else:
+    # try:
+    if profile["linkedin"]==None or profile["linkedin"]=="":
+        ret["linkedin"] = None 
+    else:
 
-            if ("linkedin_date" not in profile) or (profile["linkedin_date"]!=cur_Date):
-                ret["linkedin"] = linkedin_scratch(profile["linkedin"])    
-    except:
-        pass
+        if ("linkedin_date" not in profile) or (profile["linkedin_date"]!=cur_Date):
+            ret["linkedin"] = linkedin_scratch(profile["linkedin"])    
+    # except:
+    #     pass
 
     try:
         if profile["hackerrank"]==None or profile["hackerrank"]=="":
