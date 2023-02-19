@@ -1046,9 +1046,11 @@ def Problems_retreive_fn(total_easy,total_medium,total_hard):
 					"categorySlug": "", 
 					"skip": random, 
 					"limit": 3, 
-					"filters": {"difficulty": difficulty}
+					"filters": {"difficulty": difficulty,
+		 							"premiumOnly": False,
+								}
 				},
-				"query": "\n    query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $filters: QuestionListFilterInput) {\n  problemsetQuestionList: questionList(\n    categorySlug: $categorySlug\n    limit: $limit\n    skip: $skip\n    filters: $filters\n  ) {\n    total: totalNum\n    questions: data {\n      frontendQuestionId: questionFrontendId\n     title\n      titleSlug\n 	topicTags {\n        name\n        slug\n      }\n    }\n  }\n}\n   "
+				"query": "\n    query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $filters: QuestionListFilterInput) {\n  problemsetQuestionList: questionList(\n    categorySlug: $categorySlug\n    limit: $limit\n    skip: $skip\n    filters: $filters\n  ) {\n    total: totalNum\n    questions: data {\n      frontendQuestionId: questionFrontendId\n     isFavor\n      paidOnly: isPaidOnly\n      status\n     title\n      titleSlug\n 	topicTags {\n        name\n        slug\n      }\n    }\n  }\n}\n   "
 			}
 		res = requests.post(url='https://leetcode.com/graphql',
 							json=payload)

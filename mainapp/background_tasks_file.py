@@ -4,11 +4,12 @@ import datetime
 from .scraper.retreive import Leetcode_retreive_fn,Github_retreive_fn,Hackerrank_retreive_fn,Codechef_retreive_fn,Codeforces_retreive_fn,Problems_retreive_fn,Contest_retreive_fn
 from cpapi.settings import BLAZE_BACKEND_URL
 
-# For development server
-base_url = BLAZE_BACKEND_URL+"update/"
 
-# For production server
-# base_url = BLAZE_BACKEND_URL+":8000/update/"
+# For development server
+if "pythonanywhere" not in BLAZE_BACKEND_URL:
+    BLAZE_BACKEND_URL+=":8000/"
+
+base_url = BLAZE_BACKEND_URL+"update/"
 
 cur_Date = datetime.datetime.now(datetime.timezone.utc).date().strftime("%Y-%m-%d")
 
@@ -126,5 +127,7 @@ def main_background_fn():
     for i in range(len(profiles)):
         print("Updating " + profiles[i]['id'] + " --> " + str(i+1) + " out of " + str(len(profiles)))
         retrieve_and_put_reqest_for_profiles(profiles[i])        
+
+    print("-----FInished updating  Problems and Contest and PLatform Info-----")
 
 
