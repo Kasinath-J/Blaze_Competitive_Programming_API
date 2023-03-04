@@ -874,7 +874,8 @@ def Contest_retreive_fn(past_weekly_contest_no,past_biweekly_contest_no):
 				pass
 
 			try:
-				temp['startTime'] = datetime.datetime.fromtimestamp(res["contest"]['start_time']).strftime("%d %b %Y  %X")
+				# to convert GMT to IST, works correctly for server and not the development machine
+				temp['startTime'] = datetime.datetime.fromtimestamp(res["contest"]['origin_start_time'] + 5.5*3600).strftime("%d %b %Y  %X")
 			except:
 				pass
 
@@ -918,7 +919,8 @@ def Contest_retreive_fn(past_weekly_contest_no,past_biweekly_contest_no):
 				pass
 
 			try:
-				temp['startTime'] = datetime.datetime.fromtimestamp(res["contest"]['start_time']).strftime("%d %b %Y  %X")
+				# to convert GMT to IST, works correctly for server and not the development machine
+				temp['startTime'] = datetime.datetime.fromtimestamp(res["contest"]['origin_start_time']+5.5*3600).strftime("%d %b %Y  %X")
 			except:
 				pass
 
