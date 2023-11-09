@@ -695,7 +695,11 @@ def Codechef_retreive_fn(username):
 				pass
 
 			try:
-				problems_solved = soup.find_all("section",class_="rating-data-section problems-solved")[0].find_all("h3")[0].text.strip().split('(')[1].split(')')[0]
+				problems_solved = 0
+				different_problem_category = soup.find_all("section",class_="rating-data-section problems-solved")[0].find_all("h3")
+				for i in different_problem_category:
+    					problems_solved= problems_solved + int(i.text.strip().split('(')[1].split(')')[0])
+				
 				if problems_solved:
 					ret['problems_solved'] = problems_solved
 					is_successful = True
